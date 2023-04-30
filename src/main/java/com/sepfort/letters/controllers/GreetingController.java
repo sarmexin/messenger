@@ -1,6 +1,5 @@
 package com.sepfort.letters.controllers;
 
-import com.sepfort.letters.models.Hello;
 import com.sepfort.letters.services.GreetingService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
