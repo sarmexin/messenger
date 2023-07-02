@@ -1,0 +1,30 @@
+version: '3.9'
+services:
+  app:
+    image: letters
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/hello
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=validate
+    ports:
+      - '8080:8080'
+    restart: always
+
+  db:
+    image: postgres:11.4-alpine
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: hello
+    ports:
+      - '5432:5432'
+    restart: always
+
+
